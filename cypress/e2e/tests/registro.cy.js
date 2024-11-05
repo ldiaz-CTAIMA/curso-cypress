@@ -1,10 +1,11 @@
 import { CommonPageData } from "../pages/common-page/common-page.data";
 import { CommonPageMethods } from "../pages/common-page/common-page.methods";
+import { LoginData } from "../pages/login/login.data";
 import { SingupMethods } from "../pages/singup/singup.methods";
 import { Logger } from "../utilitarios/logger";
 const user = CommonPageMethods.generateRandomString();
 const password = CommonPageMethods.generateRandomString(7);
-const existingUser = 'random01';
+const existingUser = LoginData.validCredentials.username
 
 describe(CommonPageData.testSuites.registro, () => {
     it("Registro de usuario vádido", () => {
