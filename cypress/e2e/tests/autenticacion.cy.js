@@ -25,8 +25,7 @@ describe(CommonPageData.testSuites.autenticacion, ()=>{
         Logger.verification('Verificar que se redirige al usuario a la página de inicio');
         CommonPageMethods.verifySignedUser(LoginData.validCredentials.username);
 
-        Logger.postCondition('Empty cart and log out');
-        CartMethods.emptyCart(user.username, user.password);
+        Logger.postCondition('Lg out');
         CommonPageMethods.logout();
     })
 

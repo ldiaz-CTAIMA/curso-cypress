@@ -38,7 +38,6 @@ describe(CommonPageData.testSuites.catalogoYCompras, ()=>{
         HomeMethods.verifyProductDisplayed('ASUS Full HD');
 
         Logger.postCondition('Empty cart and log out');
-        CartMethods.emptyCart(user.username, user.password);
         CommonPageMethods.logout();
     })
 
