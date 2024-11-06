@@ -25,9 +25,9 @@ describe(CommonPageData.testSuites.autenticacion, ()=>{
         Logger.verification('Verificar que se redirige al usuario a la página de inicio');
         CommonPageMethods.verifySignedUser(LoginData.validCredentials.username);
 
-        Logger.postCondition('Log out');
+        Logger.postCondition('Empty cart and log out');
+        CartMethods.emptyCart(user.username, user.password);
         CommonPageMethods.logout();
-        cy.wait(5000);
     })
 
     it('Inicio de sesión inválido', ()=>{
