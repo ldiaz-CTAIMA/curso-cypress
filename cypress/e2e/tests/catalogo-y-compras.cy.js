@@ -9,7 +9,7 @@ import { PlaceOrderData } from "../pages/place-order/place-order.data";
 import { PlaceOrderMethods } from "../pages/place-order/place-order.methods";
 import { ProductDetailsMethods } from "../pages/product-details/product-details.methods";
 import { ThankYouForYourPurchaseElements } from "../pages/thank-you-for-your-purchase/thank-you-for-your-purchase.elements";
-import { ThankYouForYourPurchaseMethods } from "../pages/thank-you-for-your-purchase/thank-you-for-your-purchasemethods";
+import { ThankYouForYourPurchaseMethods } from "../pages/thank-you-for-your-purchase/thank-you-for-your-purchase.methods";
 import { Logger } from "../utilitarios/logger";
 
 const user = LoginData.validCredentials;
@@ -141,7 +141,6 @@ describe(CommonPageData.testSuites.catalogoYCompras, ()=>{
         Logger.stepNumber(13);
         Logger.step('Verificar que se muestra un mensaje de confirmación y se redirige al usuario a la página de inicio');
         ThankYouForYourPurchaseMethods.verifyGreenCheckMarkIsDisplayed();
-        cy.wait(5000);
         ThankYouForYourPurchaseMethods.clickOnOkButton();
         HomeMethods.verifyHomePageIsShown();
 
