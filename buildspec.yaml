@@ -6,6 +6,8 @@ phases:
   pre_build:
     commands:
     - npm install
+    - yum update -y
+    - yum install -y mesa-libgbm libXtst libX11 libXcomposite libXcursor libXi libXrandr libXScrnSaver libXrender libxshmfence
   build:
     commands:
     - npm run cy:parallel
