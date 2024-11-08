@@ -3,16 +3,15 @@ phases:
   install:
     runtime-versions:
       nodejs: latest
-    commands:
-      - yum update -y
-      - yum install -y mesa-libgbm libXtst libX11 libXcomposite libXcursor libXi libXrandr libXScrnSaver libXrender libxshmfence
   pre_build:
     commands:
       - npm install
   build:
     commands:
+      - yum install -y xorg-x11-server-Xvfb gtk2-devel libnotify-devel GConf2 nss libXScrnSaver alsa-lib
       - npm run cy:parallel
   post_build:
     commands:
-      - aws s3 sync allure-report s3://reporte-de-pruebas-lara-diaz/ --acl public-read
-      - echo "The HTML report can be found here: https://reporte-de-pruebas-lara-diaz.s3.eu-north-1.amazonaws.com/index.html"
+      - aws s3 sync allure-report s3://reporte-de-pruebas-lara-diaz/ 
+      - aws s3 cp --recursive --acl public-read s3://reporte-de-pruebas-lara-diaz/ s3://reporte-de-pruebas-lara-diaz/ --metadata-directive REPLACE
+      - echo "The HTML report can be found here: <https://reporte-de-pruebas-lara-diaz.s3.eu-north-1.amazonaws.com/index.html>"
