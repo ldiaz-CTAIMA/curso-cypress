@@ -8,8 +8,13 @@ phases:
       - yum install -y mesa-libgbm libXtst libX11 libXcomposite libXcursor libXi libXrandr libXScrnSaver libXrender libxshmfence
   pre_build:
     commands:
-    - npm install
+      - npm install
   build:
     commands:
-    - npm run cy:parallel
+      - npm run cy:parallel
+  post_build:
+    commands:
+      - aws s3 sync allure-report s3://reporte-de-pruebas-lara-diaz/ 
+      - aws s3 cp --recursive --acl public-read s3://reporte-de-pruebas-lara-diaz/ s3://reporte-de-pruebas-lara-diaz/ --metadata-directive REPLACE
+
 
