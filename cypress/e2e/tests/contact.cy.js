@@ -31,12 +31,12 @@ describe(CommonPageData.testSuites.contacto, () => {
         Logger.stepNumber(5);
         Logger.step('Hacer click en "Contacto"');
         CommonPageMethods.clickOnContactOption();
-        cy.wait(5000);
+        cy.wait(1000)
 
         Logger.stepNumber(6);
         Logger.step('Completar todos los campos');
         ContactMethods.insertContactInformation(ContactData.contactData);
-        cy.wait(5000);
+        ContactMethods.interceptSendMessageButton();
 
         Logger.stepNumber(7);
         Logger.step('Enviar mensaje haciendo click en el botón "Send Message"');

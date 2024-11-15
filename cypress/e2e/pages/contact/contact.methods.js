@@ -31,4 +31,8 @@ export class ContactMethods{
     static verifyThatThanksForTheMessageMessageIsDisplayed(){
         CommonPageMethods.verifyAlert('Thanks for the message!!');
     }
+
+    static interceptSendMessageButton(){
+        cy.intercept('GET', 'https://demoblaze.com/index.html');
+    }
 }
