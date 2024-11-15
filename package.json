@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results",
-    "ejecutar-pruebas": "cypress run --env allure=true",
+    "ejecutar-pruebas": "cypress run  run --headed --env allure=true",
     "generar-reporte": "allure generate allure-results -o allure-report --clean",
     "abrir-reporte": "allure open",
-    "test": "npm run limpiar-reporte && npm run ejecutar-pruebas && npm run generar-reporte && npm run abrir-reporte",
+    "test": "npm run limpiar-reporte && npm run ejecutar-pruebas && npm run generar-reporte & npm run abrir-reporte",
     "cy:parallel": "npm run limpiar-reporte && cypress-parallel -s ejecutar-pruebas -t 2 -d ./cypress/e2e/tests && npm run generar-reporte"
   },
   "keywords": [],
@@ -20,7 +20,7 @@
     "cypress": "^13.15.0"
   },
   "devDependencies": {
-    "allure-commandline": "^2.30.0",
+    "allure-commandline": "^2.32.0",
     "cypress-parallel": "^0.14.0",
     "rimraf": "^6.0.1"
   }

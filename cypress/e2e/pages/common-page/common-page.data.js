@@ -8,6 +8,7 @@ export class CommonPageData {
             registro: "Registro",
             autenticacion: "Autenticación",
             catalogoYCompras: "Catálogo y Compras",
+            contacto: "Contacto",
         };
     }
 }
