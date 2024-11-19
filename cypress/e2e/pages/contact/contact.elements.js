@@ -20,4 +20,12 @@ export class ContactElements {
             }
         }
     }
+
+    static get text() {
+        return {
+            get newMessage(){
+                return cy.contains('h5', 'New message');
+            }
+        }
+    }
 }

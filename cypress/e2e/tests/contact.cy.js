@@ -31,16 +31,15 @@ describe(CommonPageData.testSuites.contacto, () => {
         Logger.stepNumber(5);
         Logger.step('Hacer click en "Contacto"');
         CommonPageMethods.clickOnContactOption();
-        cy.wait(1000)
+        ContactMethods.newMessageText();
 
         Logger.stepNumber(6);
         Logger.step('Completar todos los campos');
         ContactMethods.insertContactInformation(ContactData.contactData);
-        ContactMethods.interceptSendMessageButton();
 
         Logger.stepNumber(7);
         Logger.step('Enviar mensaje haciendo click en el botón "Send Message"');
-        ContactMethods.clickOnSendMessageButton();
+        ContactMethods.interceptSendMessageButton();
         Logger.verification('Verificar que se muestra un mensaje de confirmación y se redirige al usuario a la página de inicio');
         ContactMethods.verifyThatThanksForTheMessageMessageIsDisplayed();
         HomeMethods.verifyHomePageIsShown();
